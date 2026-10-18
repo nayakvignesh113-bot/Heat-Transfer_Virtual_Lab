@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use the Heat Transfer Virtual Lab in teaching or research, please cite it as below."
+type: software
+title: "Heat Transfer Virtual Lab: an open virtual laboratory for conduction, convection, radiation, phase change, heat exchangers and thermal systems"
+abstract: >-
+  Browser-based virtual laboratory with 18 heat transfer experiments: thermal
+  conductivity of a metal rod, insulating powder, lagging and liquids; composite
+  wall; transient conduction; pin fin; free convection, forced convection in a tube
+  and cross flow over a cylinder; emissivity and the Stefan-Boltzmann constant; pool
+  boiling and critical heat flux; filmwise and dropwise condensation; double-pipe
+  heat exchanger; heat pipe; vapour compression refrigeration; and quenchant
+  cooling-curve analysis with the ISO 9950 probe. Each experiment provides pre- and
+  post-tests, theory with nomenclature and a narrated explainer, a safety briefing,
+  do-it-yourself set-up with interlocks, a physics-based simulation with live
+  thermal field and steady-state judgement, validation against correlations and
+  handbook data with an energy balance, randomised numericals, a heat transfer data
+  book, and a watermarked lab report with uncertainty analysis.
+authors:
+  - family-names: Ullal
+    given-names: Vignesh Nayak
+    affiliation: "Department of Mechanical Engineering, Mangalore Institute of Technology & Engineering (MITE), Moodbidri, India"
+version: "1.0"
+date-released: "2026-10-18"
+license: CC-BY-NC-SA-4.0
+url: "https://nayakvignesh113-bot.github.io/Heat-Transfer_Virtual_Lab/"
+repository-code: "https://github.com/nayakvignesh113-bot/Heat-Transfer_Virtual_Lab"
+keywords:
+  - virtual laboratory
+  - heat transfer
+  - conduction
+  - convection
+  - radiation
+  - boiling
+  - heat exchanger
+  - quenching
+  - engineering education
+  - simulation

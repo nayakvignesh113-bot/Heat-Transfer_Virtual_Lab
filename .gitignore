@@ -1,0 +1,4 @@
+tools/shots/
+tools/narration/narration.json
+__pycache__/
+*.wav
