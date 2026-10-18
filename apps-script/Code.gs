@@ -10,7 +10,7 @@ var COLUMNS = [
   ['received', 'Received (server time)'], ['reportId', 'Report ID'], ['experiment', 'Experiment'],
   ['name', 'Name'], ['usn', 'USN'], ['section', 'Section'], ['batch', 'Batch'],
   ['faculty', 'Faculty'], ['institution', 'Institution'], ['reportDate', 'Report date'],
-  ['safetyAck', 'Safety acknowledged'], ['setupMode', 'Machine set-up'], ['setupAlarms', 'Interlock alarms'],
+  ['safetyAck', 'Safety acknowledged'], ['setupMode', 'Rig set-up'], ['setupAlarms', 'Interlock alarms'],
   ['preFirst', 'Pre-test first attempt (%)'], ['postFirst', 'Post-test first attempt (%)'], ['gain', 'Normalised gain g'],
   ['preNow', 'Pre-test current (%)'], ['postNow', 'Post-test current (%)'],
   ['resultsCorrect', 'Results within tolerance'], ['resultsTotal', 'Results checked'], ['validationAttempts', 'Validation checks'],
@@ -23,7 +23,7 @@ var COLUMNS = [
 var FB_COLUMNS = [
   ['received', 'Received (server time)'], ['reportId', 'Report ID'], ['experiment', 'Experiment'],
   ['name', 'Name'], ['usn', 'USN'], ['section', 'Section'], ['batch', 'Batch'], ['institution', 'Institution'],
-  ['q1', 'Theory and explainer helped (1-5)'], ['q2', 'Setting up and running the machine helped (1-5)'],
+  ['q1', 'Theory and explainer helped (1-5)'], ['q2', 'Setting up and running the rig helped (1-5)'],
   ['q3', 'Observations, calculations and validation helped (1-5)'], ['q4', 'Tests and numericals at right level (1-5)'],
   ['q5', 'Easy to use on device (1-5)'], ['q6', 'Would recommend (1-5)'],
   ['time', 'Time spent'], ['device', 'Device'], ['helped', 'What helped most'],
