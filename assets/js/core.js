@@ -166,8 +166,8 @@
     stopAnim();
     const hash = location.hash.replace('#', '');
     const [id, stage] = hash.split('-s-');
-    if (id && LAB.exps[id]) openExp(LAB.exps[id], stage); else if (id === 'about' && LAB.ext && LAB.ext.about) { current = null; LAB.ext.about(app()); } else if (id === 'databook' && LAB.ext && LAB.ext.databook) { current = null; LAB.ext.databook(app()); } else if (id === 'lab') { location.replace('#' + LAB.list[0].id); return; } else if (id === 'faculty' && LAB.ext && LAB.ext.faculty) { current = null; LAB.ext.faculty(app()); } else if (id && id.startsWith('verify-') && LAB.ext && LAB.ext.verify) { current = null; LAB.ext.verify(app(), decodeURIComponent(id.slice(7))); } else home();
-    if (LAB.ext && LAB.ext.markRail) LAB.ext.markRail(id && LAB.exps[id] ? id : (['about', 'databook'].includes(id) ? id : 'home'));
+    if (id && LAB.exps[id]) openExp(LAB.exps[id], stage); else if (id === 'about' && LAB.ext && LAB.ext.about) { current = null; LAB.ext.about(app()); } else if (id === 'databook' && LAB.ext && LAB.ext.databook) { current = null; LAB.ext.databook(app()); } else if (id === 'handbook' && LAB.ext && LAB.ext.handbook) { current = null; LAB.ext.handbook(app(), stage); } else if (id === 'lab') { location.replace('#' + LAB.list[0].id); return; } else if (id === 'faculty' && LAB.ext && LAB.ext.faculty) { current = null; LAB.ext.faculty(app()); } else if (id && id.startsWith('verify-') && LAB.ext && LAB.ext.verify) { current = null; LAB.ext.verify(app(), decodeURIComponent(id.slice(7))); } else home();
+    if (LAB.ext && LAB.ext.markRail) LAB.ext.markRail(id && LAB.exps[id] ? id : (['about', 'databook', 'handbook'].includes(id) ? id : 'home'));
     window.scrollTo(0, 0);
   }
   LAB.go = (id, stage) => { location.hash = id + (stage ? '-s-' + stage : ''); };
@@ -198,7 +198,7 @@
         <h1 style="margin-top:10px">Heat Transfer<br><em>Laboratory</em></h1>
         <p class="lede">${N} experiments in conduction, fins, convection, radiation, boiling and condensation, heat exchangers and thermal systems. Every rig is a live thermal model: you watch thermocouples settle, decide when the system is at steady state, take readings and close the energy balance, the way the real bench works.</p>
         <p class="credit">Developed by <b>Dr. Vignesh Nayak Ullal</b>, Department of Mechanical Engineering, MITE Moodbidri</p>
-        <div class="controls" style="margin-top:16px"><a class="btn" href="#lab">Start with Exp. 01 →</a><a class="btn quiet" href="#databook">Heat transfer data book</a><a class="btn quiet" href="#about">About &amp; validation</a></div>
+        <div class="controls" style="margin-top:16px"><a class="btn" href="#lab">Start with Exp. 01 →</a><a class="btn quiet" href="#handbook">Heat Transfer Handbook</a><a class="btn quiet" href="#databook">Data book</a><a class="btn quiet" href="#about">About &amp; validation</a></div>
         <div class="hero-stats"><div><b class="num">${N}</b><span>experiments</span></div><div><b class="num">${LAB.CATS.length}</b><span>topic groups</span></div><div><b class="num">${STAGES.length}</b><span>stages each</span></div><div><b class="num">${done}</b><span>of ${N * STAGES.length} stages done on this device</span></div></div>
       </div>
       <div class="hero-fig"><canvas id="heroChart" aria-label="Animated temperature distributions along pin fins of copper, aluminium, brass and stainless steel"></canvas>

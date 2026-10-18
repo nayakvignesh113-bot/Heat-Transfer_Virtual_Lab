@@ -4,7 +4,7 @@
   'use strict';
   const U = LAB.U, h = LAB.h, $ = (s, el) => (el || document).querySelector(s), esc = U.esc;
   const EXT = (LAB.ext = LAB.ext || {});
-  const VERSION = (LAB.VERSION = '1.0'), VDATE = '18 Oct 2026';
+  const VERSION = (LAB.VERSION = '1.1'), VDATE = '18 Oct 2026';
   const CFG = (window.HTL_CONFIG = window.HTL_CONFIG || {});
   const AUDIO = 'audio/';
   const reduce = (() => { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } })();
@@ -21,7 +21,7 @@
   EXT.buildRail = function () {
     const bl = $('#brandLogo'); if (bl && LAB.LOGO) bl.src = LAB.LOGO;
     const r = $('#rail'); if (!r) return;
-    r.innerHTML = `<div class="rgrp"><a class="rhome" data-go="home" href="#">Overview</a><a class="rhome" data-go="databook" href="#databook">Data book</a><a class="rhome" data-go="about" href="#about">About &amp; validation</a></div>` +
+    r.innerHTML = `<div class="rgrp"><a class="rhome" data-go="home" href="#">Overview</a><a class="rhome" data-go="databook" href="#databook">Data book</a><a class="rhome" data-go="handbook" href="#handbook">Handbook</a><a class="rhome" data-go="about" href="#about">About &amp; validation</a></div>` +
       LAB.CATS.map(([k, name]) => `<div class="rgrp"><div class="rcat">${name}</div>${LAB.list.filter(e => e.cat === k).map(e => `<a data-go="${e.id}" href="#${e.id}"><span class="rno">${String(e.no).padStart(2, '0')}</span>${e.title}</a>`).join('')}</div>`).join('');
     r.addEventListener('click', ev => { if (ev.target.closest('a')) document.body.classList.remove('rail-open'); });
     const t = $('#railBtn'); if (t) t.onclick = () => document.body.classList.toggle('rail-open');
@@ -184,7 +184,7 @@
       <h3>How far the simulators have been checked</h3><p>Each simulator is labelled with one of three levels. ${Object.entries(VS).map(([k, v]) => `<span class="vchip ${v[1]}">${v[0]}</span> ${v[2]}`).join(' ')}</p>
       <p class="muted" style="font-size:.86rem">Currently ${counts.v} validated, ${counts.p} partly validated and ${counts.t} teaching models. All outputs are model estimates for teaching.</p></div>
       ${LAB.tableHTML({ cols: ['No.', 'Experiment', 'Status', 'Basis of the check', 'Main sources'], textCols: [1, 2, 3, 4], rows: LAB.list.map(e => [e.no, `<a href="#${e.id}">${e.title}</a>`, chip(e.id), (VALID[e.id] || [])[1] || '', (VALID[e.id] || [])[2] || '']) })}
-      <div class="prose"><h3>Version history</h3><ul><li><b>1.0</b> (${VDATE}): ${LAB.list.length} experiments with eight stages each; live false-colour temperature fields; steady-state judgement from the temperature log; energy-balance checks; built-in heat transfer data book (air, water and steam, R134a, solids, emissivities, correlations); narrated explainers with concept checks; safety briefings; do-it-yourself set-up with interlocks; numericals; feedback; submission to the faculty's Google Sheet; watermarked reports; certificates of completion. Built on the engine of the Materials Testing &amp; Characterization Virtual Lab by the same author.</li></ul>
+      <div class="prose"><h3>Version history</h3><ul><li><b>1.1</b> (${VDATE}): <a href="#handbook">Heat Transfer Handbook</a>, a complete heat and mass transfer data book in 15 chapters, with property tables computed from reference equations of state, interpolating look-ups, Heisler, Gröber, fin, Moody, view factor, ε–NTU and LMTD correction charts, calculators, and a printable PDF version.</li><li><b>1.0</b> (18 Oct 2026): ${LAB.list.length} experiments with eight stages each; live false-colour temperature fields; steady-state judgement from the temperature log; energy-balance checks; built-in heat transfer data book (air, water and steam, R134a, solids, emissivities, correlations); narrated explainers with concept checks; safety briefings; do-it-yourself set-up with interlocks; numericals; feedback; submission to the faculty's Google Sheet; watermarked reports; certificates of completion. Built on the engine of the Materials Testing &amp; Characterization Virtual Lab by the same author.</li></ul>
       <h3>Cite this lab</h3><div class="citebox"><p id="cite">${esc(CITE)}</p><button class="btn quiet small" id="copycite" type="button">Copy citation</button><span class="muted" id="citemsg" style="font-size:.8rem"></span></div>
       <h3>Licence</h3><p>© 2026 Vignesh Nayak Ullal. Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>. You may use and adapt it for teaching and research with attribution; commercial use requires the author's permission. Published data reproduced for validation remain the property of their sources.</p>
       <h3>Your data</h3><p>Progress, answers and report details are stored only in your browser. Nothing is sent anywhere unless you press <i>Submit feedback</i> or <i>Submit to faculty</i>, which send your name, USN, scores and written answers to your faculty's Google Sheet.</p></div></section>`;
